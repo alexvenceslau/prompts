@@ -174,7 +174,7 @@ QUESTIONS (pt-BR):
 - Submit button: "Quero Minha Proteção →" (green gradient, color #FFFFFF, full width, font-size 1.2rem)
 - JS validation before submit: required fields + email format + phone min 14 chars
 - onSubmit: preventDefault → fetch POST to:
-  `https://api.avizzap.com/v1/webhook/1ee3a5a3-4c04-4029-ba36-379ab0dece7b`
+  `https://api.example.com/v1/webhook/YOUR-WEBHOOK-ID-HERE`
   headers: { "Content-Type": "application/json" }
   body: JSON.stringify({ nome, email, telefone, cidade, veiculo })
 - Success: overlay background rgba(28,156,75,0.95) with message "✅ Recebemos seu contato! Em breve nossa equipe entrará em contato pelo WhatsApp." + close button
