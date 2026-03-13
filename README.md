@@ -204,13 +204,6 @@ Claro! O código é seu. Você pode modificar à vontade ou pedir à IA para faz
 
 Recomendamos Claude Sonnet ou ChatGPT-4 para melhores resultados, mas você pode experimentar com outras.
 
-## 📞 Suporte
-
-Encontrou algum problema ou tem dúvidas?
-
-- Abra uma [issue](../../issues)
-- Veja a [documentação existente](../../wiki) (em breve)
-
 ## 🌟 Prompts em desenvolvimento
 
 Fique de olho! Em breve teremos prompts para:
@@ -227,7 +220,7 @@ Fique de olho! Em breve teremos prompts para:
 
 ## 🚀 Conheça também o Avizzap
 
-Precisa de mais ferramentas para seu negócio? Conheça o **[Avizzap](https://avizzap.com)** - plataforma completa para gestão e automação de WhatsApp Business.
+Precisa de mais ferramentas para seu negócio? Conheça o **[Avizzap](https://avizzap.com)** - plataforma que automatiza a distribuição de leads e envia novos contatos diretamente para o WhatsApp dos vendedores em tempo real.
 
 ---
 
