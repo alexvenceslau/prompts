@@ -225,6 +225,12 @@ Fique de olho! Em breve teremos prompts para:
 
 ---
 
+## 🚀 Conheça também o Avizzap
+
+Precisa de mais ferramentas para seu negócio? Conheça o **[Avizzap](https://avizzap.com)** - plataforma completa para gestão e automação de WhatsApp Business.
+
+---
+
 **Feito com ❤️ para democratizar a criação de páginas profissionais**
 
 _Se este projeto ajudou você, deixe uma ⭐ no repositório!_
