@@ -1,0 +1,1816 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proteção Veicular Barata - SuaProteção Veicular</title>
+    <meta
+      name="description"
+      content="Proteção veicular a partir de R$2,46/dia. Sem análise de perfil, sem franquia abusiva. Roubo, colisão, assistência 24h, rastreamento e reboque 1000km."
+    />
+    <meta
+      property="og:title"
+      content="SuaProteção Veicular — A partir de R$2,46/dia"
+    />
+    <meta
+      property="og:description"
+      content="Melhor que seguro, sem burocracia. Proteja seu veículo agora."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-primary: #000000;
+        --bg-secondary: #0a0f0c;
+        --bg-card: #0f1a13;
+        --bg-elevated: #152b1c;
+        --border-surface: rgba(28, 156, 75, 0.15);
+        --text-body: #eeeeee;
+        --text-muted: #888888;
+        --green-primary: #1c9c4b;
+        --green-secondary: #17803d;
+        --green-light: #25c45e;
+        --green-glow: rgba(28, 156, 75, 0.18);
+        --white: #ffffff;
+        --success: #22c55e;
+        --error: #ef4444;
+        --grad-hero: linear-gradient(
+          135deg,
+          #000000 0%,
+          #060d08 40%,
+          #0d1f12 70%,
+          #152b1c 100%
+        );
+        --grad-shimmer: linear-gradient(
+          90deg,
+          #17803d 0%,
+          #1c9c4b 40%,
+          #a8f0c2 60%,
+          #1c9c4b 80%,
+          #17803d 100%
+        );
+        --grad-btn: linear-gradient(135deg, #1c9c4b 0%, #17803d 100%);
+        --grad-btn-hover: linear-gradient(135deg, #25c45e 0%, #1c9c4b 100%);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-body);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+
+      p,
+      li,
+      blockquote {
+        text-wrap: pretty;
+      }
+
+      /* ===== BUTTONS ===== */
+      .btn-primary {
+        display: inline-block;
+        background: var(--grad-btn);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        padding: 14px 28px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.15);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(28, 156, 75, 0.45);
+      }
+      .btn-outline {
+        display: inline-block;
+        background: transparent;
+        color: var(--green-primary);
+        border: 1.5px solid var(--green-primary);
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .btn-outline:hover {
+        background: rgba(28, 156, 75, 0.08);
+      }
+
+      /* ===== HEADER ===== */
+      #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background: #000;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 clamp(16px, 5vw, 80px);
+        transition: box-shadow 0.3s ease;
+      }
+      #header.scrolled {
+        box-shadow: 0 2px 20px rgba(28, 156, 75, 0.3);
+      }
+      .logo {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 1.3rem;
+        text-decoration: none;
+      }
+      .logo span:first-child {
+        color: var(--green-primary);
+      }
+      .logo span:last-child {
+        color: var(--white);
+      }
+      .header-btn {
+        font-size: 0.85rem;
+        padding: 10px 18px;
+        white-space: nowrap;
+      }
+
+      /* ===== SCROLL REVEAL ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== SECTION WRAPPER ===== */
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 clamp(16px, 5vw, 80px);
+      }
+
+      /* ===== SVG WAVE DIVIDERS ===== */
+      .wave-divider {
+        display: block;
+        width: 100%;
+        line-height: 0;
+      }
+      .wave-divider svg {
+        display: block;
+        width: 100%;
+      }
+
+      /* ===== HERO ===== */
+      #hero {
+        min-height: 100vh;
+        background: var(--grad-hero);
+        display: flex;
+        align-items: center;
+        padding-top: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+        width: 100%;
+        padding: 80px 0;
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .hero-h1 {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        background: var(--grad-shimmer);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: shimmerMove 4s linear infinite;
+      }
+      @keyframes shimmerMove {
+        0% {
+          background-position: 0% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      .hero-subtitle {
+        font-size: 1.3rem;
+        color: var(--text-body);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+      }
+      .hero-support {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+      .hero-badges {
+        color: var(--text-body);
+        font-size: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+      .hero-badge-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .hero-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* ===== BENEFITS ===== */
+      #beneficios {
+        background: var(--bg-secondary);
+        padding: 80px 0 40px;
+      }
+      .section-title {
+        text-align: center;
+        color: var(--white);
+        font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+        margin-bottom: 12px;
+      }
+      .section-sub {
+        text-align: center;
+        color: var(--text-muted);
+        margin-bottom: 48px;
+        font-size: 1.05rem;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .benefit-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-surface);
+        border-radius: 12px;
+        padding: 24px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .benefit-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(28, 156, 75, 0.06) 0%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .benefit-card:hover {
+        border-color: var(--green-primary);
+        transform: translateY(-4px);
+        box-shadow: 0 0 24px rgba(28, 156, 75, 0.2);
+      }
+      .benefit-card:hover::after {
+        opacity: 1;
+      }
+      .benefit-icon {
+        font-size: 2.4rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .benefit-card h3 {
+        color: var(--white);
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+      .benefit-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* ===== COMPARISON ===== */
+      #comparativo {
+        background: var(--bg-secondary);
+        padding: 80px 0 40px;
+      }
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .comparison-table th {
+        background: var(--green-primary);
+        color: var(--white);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        padding: 16px 20px;
+        text-align: left;
+        font-size: 1rem;
+      }
+      .comparison-table td {
+        padding: 14px 20px;
+        color: var(--text-body);
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(28, 156, 75, 0.08);
+      }
+      .comparison-table tr:nth-child(even) td {
+        background: var(--bg-secondary);
+      }
+      .comparison-table tr:nth-child(odd) td {
+        background: var(--bg-card);
+      }
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+      .comparison-table td.green-val {
+        color: var(--green-primary);
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+      }
+      .comparison-table td.red-val {
+        color: #888;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      #depoimentos {
+        background: var(--bg-primary);
+        padding: 80px 0 40px;
+      }
+      .slider-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+      .slides-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      .slide {
+        min-width: 100%;
+        padding: 0 4px;
+      }
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(28, 156, 75, 0.15);
+        border-left: 4px solid var(--green-primary);
+        border-radius: 12px;
+        padding: 32px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .testimonial-quote {
+        font-style: italic;
+        color: var(--text-body);
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        line-height: 1.75;
+      }
+      .testimonial-author {
+        color: var(--green-primary);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+      .testimonial-stars {
+        color: #f59e0b;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        letter-spacing: 2px;
+      }
+      .slider-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .slider-btn {
+        background: transparent;
+        border: 1.5px solid var(--green-primary);
+        color: var(--green-primary);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+      }
+      .slider-btn:hover {
+        background: rgba(28, 156, 75, 0.15);
+        box-shadow: 0 0 12px rgba(28, 156, 75, 0.3);
+      }
+      .slider-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(28, 156, 75, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .dot.active {
+        background: var(--green-primary);
+        transform: scale(1.3);
+      }
+
+      /* ===== FAQ ===== */
+      #faq {
+        background: var(--bg-secondary);
+        padding: 80px 0 40px;
+      }
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-surface);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.3s ease;
+      }
+      .faq-item:hover {
+        border-color: rgba(28, 156, 75, 0.4);
+      }
+      .faq-item.open {
+        border-color: var(--green-primary);
+      }
+      .faq-question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 24px;
+        cursor: pointer;
+        color: var(--white);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        user-select: none;
+        gap: 12px;
+      }
+      .faq-icon {
+        color: var(--green-primary);
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.3s ease;
+      }
+      .faq-answer-inner {
+        padding: 0 24px 16px;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+      .faq-item.open .faq-answer {
+        max-height: 300px;
+      }
+
+      /* ===== FORM ===== */
+      #formulario {
+        background: linear-gradient(160deg, #0a0f0c 0%, #0f1a13 100%);
+        padding: 80px 0;
+      }
+      .form-wrapper {
+        max-width: 620px;
+        margin: 0 auto;
+      }
+      .form-title {
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .form-sub {
+        color: var(--text-muted);
+        margin-bottom: 36px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        color: var(--text-body);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 7px;
+        letter-spacing: 0.02em;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        background: var(--bg-elevated);
+        border: 1px solid rgba(28, 156, 75, 0.25);
+        color: var(--text-body);
+        border-radius: 8px;
+        padding: 13px 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .form-group select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231C9C4B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 40px;
+        cursor: pointer;
+      }
+      .form-group select option {
+        background: var(--bg-card);
+        color: var(--text-body);
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--green-primary);
+        box-shadow: 0 0 0 3px rgba(28, 156, 75, 0.15);
+      }
+      .form-group input::placeholder {
+        color: rgba(238, 238, 238, 0.3);
+      }
+      .field-error {
+        color: var(--error);
+        font-size: 0.82rem;
+        margin-top: 5px;
+        display: none;
+      }
+      .field-error.show {
+        display: block;
+      }
+      .btn-submit {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 8px;
+      }
+      .form-global-error {
+        color: var(--error);
+        text-align: center;
+        margin-top: 12px;
+        font-size: 0.9rem;
+        display: none;
+      }
+      .form-global-error.show {
+        display: block;
+      }
+
+      /* Success overlay */
+      #success-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(28, 156, 75, 0.95);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+        gap: 24px;
+      }
+      #success-overlay.show {
+        display: flex;
+      }
+      #success-overlay h2 {
+        color: #fff;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+      }
+      #success-overlay p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        max-width: 480px;
+      }
+      #success-overlay button {
+        background: #fff;
+        color: var(--green-primary);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      #success-overlay button:hover {
+        background: #e8ffe8;
+      }
+
+      /* ===== FOOTER ===== */
+      #footer {
+        background: #000;
+        padding: 48px 0;
+        text-align: center;
+      }
+      .footer-logo {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+      .footer-logo span:first-child {
+        color: var(--green-primary);
+      }
+      .footer-logo span:last-child {
+        color: var(--white);
+      }
+      .footer-tagline {
+        color: var(--text-muted);
+        margin-bottom: 24px;
+        font-size: 0.95rem;
+      }
+      .footer-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-body);
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .footer-contact-item:hover {
+        color: var(--green-light);
+      }
+      .footer-contact-item svg {
+        color: var(--green-primary);
+        flex-shrink: 0;
+      }
+      .footer-copy {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+      }
+      .footer-disclaimer {
+        color: #555;
+        font-size: 0.8rem;
+      }
+
+      /* ===== WHATSAPP FLOAT ===== */
+      #whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 60px;
+        height: 60px;
+        background: var(--green-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(28, 156, 75, 0.4);
+        animation: waPulse 2s ease-in-out infinite;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      #whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 28px rgba(28, 156, 75, 0.6);
+      }
+      @keyframes waPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 0 rgba(28, 156, 75, 0.4),
+            0 4px 20px rgba(28, 156, 75, 0.3);
+        }
+        50% {
+          box-shadow:
+            0 0 0 14px rgba(28, 156, 75, 0),
+            0 4px 20px rgba(28, 156, 75, 0.3);
+        }
+      }
+
+      /* ===== GLASS CARD (testimonials) ===== */
+      .glass {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          padding: 48px 0;
+        }
+        .hero-img {
+          display: none;
+        }
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+        .comparison-table {
+          font-size: 0.85rem;
+        }
+        .comparison-table th,
+        .comparison-table td {
+          padding: 10px 12px;
+        }
+        .header-btn span {
+          display: none;
+        }
+        .header-btn::after {
+          content: "Proteger →";
+        }
+        #whatsapp-float {
+          bottom: 16px;
+          right: 16px;
+          width: 52px;
+          height: 52px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+      <a href="#" class="logo">
+        <span>SuaProteção</span><span>Veicular</span>
+      </a>
+      <a href="#formulario" class="btn-primary header-btn">
+        <span>Quero Proteger Meu Carro →</span>
+      </a>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="section-inner" style="width: 100%">
+        <div class="hero-grid">
+          <div class="hero-content reveal">
+            <h1 class="hero-h1">
+              Proteção Veicular a partir de R$&nbsp;2,46/dia
+            </h1>
+            <p class="hero-subtitle">
+              Melhor que seguro, sem burocracia. Sem análise de perfil, sem
+              franquia absurda.
+            </p>
+            <p class="hero-support">
+              Associação de proteção veicular: você paga apenas a adesão +
+              mensalidade. Cancele quando quiser.
+            </p>
+            <a
+              href="#formulario"
+              class="btn-primary"
+              style="
+                font-size: 1.15rem;
+                padding: 16px 36px;
+                align-self: flex-start;
+              "
+              >Quero Minha Proteção Agora</a
+            >
+            <div class="hero-badges">
+              <span class="hero-badge-item">✅ Sem análise de crédito</span>
+              <span class="hero-badge-item">✅ 100% online</span>
+              <span class="hero-badge-item">✅ Assistência 24h</span>
+            </div>
+          </div>
+          <div class="hero-img reveal">
+            <svg
+              viewBox="0 0 480 300"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                max-width: 480px;
+                width: 100%;
+                filter: drop-shadow(0 0 40px rgba(28, 156, 75, 0.25));
+              "
+            >
+              <defs>
+                <linearGradient
+                  id="carGrad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#0d1f12" />
+                  <stop
+                    offset="100%"
+                    stop-color="#1C9C4B"
+                    stop-opacity="0.18"
+                  />
+                </linearGradient>
+                <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#1C9C4B" stop-opacity="0.8" />
+                  <stop offset="100%" stop-color="#17803d" stop-opacity="0.5" />
+                </linearGradient>
+                <linearGradient
+                  id="glassGrad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#a8f0c2" stop-opacity="0.3" />
+                  <stop offset="100%" stop-color="#1C9C4B" stop-opacity="0.1" />
+                </linearGradient>
+                <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#333" />
+                  <stop offset="60%" stop-color="#111" />
+                  <stop offset="100%" stop-color="#1C9C4B" stop-opacity="0.6" />
+                </radialGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- Ground reflection -->
+              <ellipse
+                cx="240"
+                cy="268"
+                rx="200"
+                ry="14"
+                fill="rgba(28,156,75,0.08)"
+              />
+              <!-- Car body -->
+              <path
+                d="M 60 220 L 60 185 Q 62 165 90 158 L 155 130 Q 175 110 210 106 L 295 104 Q 330 104 355 118 L 400 148 Q 430 160 435 178 L 440 220 Z"
+                fill="url(#bodyGrad)"
+                filter="url(#glow)"
+              />
+              <!-- Car roof -->
+              <path
+                d="M 155 130 Q 175 110 210 106 L 295 104 Q 330 104 355 118 L 400 148 L 360 148 Q 335 130 300 122 L 210 120 Q 185 120 165 136 Z"
+                fill="rgba(28,156,75,0.3)"
+              />
+              <!-- Windshield -->
+              <path
+                d="M 168 136 L 210 120 L 295 120 L 340 148 L 280 148 Q 255 138 220 138 Z"
+                fill="url(#glassGrad)"
+                opacity="0.9"
+              />
+              <!-- Rear window -->
+              <path
+                d="M 340 148 L 360 148 L 360 132 L 340 118 Z"
+                fill="url(#glassGrad)"
+                opacity="0.6"
+              />
+              <!-- Side window -->
+              <path
+                d="M 168 136 L 220 138 Q 255 138 280 148 L 168 148 Z"
+                fill="url(#glassGrad)"
+                opacity="0.5"
+              />
+              <!-- Door lines -->
+              <line
+                x1="220"
+                y1="148"
+                x2="218"
+                y2="218"
+                stroke="rgba(28,156,75,0.4)"
+                stroke-width="1.5"
+              />
+              <line
+                x1="315"
+                y1="148"
+                x2="318"
+                y2="218"
+                stroke="rgba(28,156,75,0.4)"
+                stroke-width="1.5"
+              />
+              <!-- Wheels -->
+              <circle
+                cx="135"
+                cy="226"
+                r="38"
+                fill="url(#wheelGrad)"
+                stroke="#1C9C4B"
+                stroke-width="2.5"
+              />
+              <circle
+                cx="135"
+                cy="226"
+                r="24"
+                fill="none"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.7"
+              />
+              <circle cx="135" cy="226" r="10" fill="#1C9C4B" opacity="0.8" />
+              <circle
+                cx="365"
+                cy="226"
+                r="38"
+                fill="url(#wheelGrad)"
+                stroke="#1C9C4B"
+                stroke-width="2.5"
+              />
+              <circle
+                cx="365"
+                cy="226"
+                r="24"
+                fill="none"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.7"
+              />
+              <circle cx="365" cy="226" r="10" fill="#1C9C4B" opacity="0.8" />
+              <!-- Wheel spokes front -->
+              <line
+                x1="135"
+                y1="202"
+                x2="135"
+                y2="250"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.5"
+              />
+              <line
+                x1="111"
+                y1="226"
+                x2="159"
+                y2="226"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.5"
+              />
+              <line
+                x1="118"
+                y1="209"
+                x2="152"
+                y2="243"
+                stroke="#1C9C4B"
+                stroke-width="1"
+                stroke-opacity="0.3"
+              />
+              <line
+                x1="152"
+                y1="209"
+                x2="118"
+                y2="243"
+                stroke="#1C9C4B"
+                stroke-width="1"
+                stroke-opacity="0.3"
+              />
+              <!-- Wheel spokes rear -->
+              <line
+                x1="365"
+                y1="202"
+                x2="365"
+                y2="250"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.5"
+              />
+              <line
+                x1="341"
+                y1="226"
+                x2="389"
+                y2="226"
+                stroke="#1C9C4B"
+                stroke-width="1.5"
+                stroke-opacity="0.5"
+              />
+              <line
+                x1="348"
+                y1="209"
+                x2="382"
+                y2="243"
+                stroke="#1C9C4B"
+                stroke-width="1"
+                stroke-opacity="0.3"
+              />
+              <line
+                x1="382"
+                y1="209"
+                x2="348"
+                y2="243"
+                stroke="#1C9C4B"
+                stroke-width="1"
+                stroke-opacity="0.3"
+              />
+              <!-- Headlight -->
+              <ellipse
+                cx="72"
+                cy="188"
+                rx="12"
+                ry="8"
+                fill="#a8f0c2"
+                opacity="0.7"
+                filter="url(#glow)"
+              />
+              <ellipse
+                cx="72"
+                cy="188"
+                rx="8"
+                ry="5"
+                fill="#fff"
+                opacity="0.4"
+              />
+              <!-- Taillight -->
+              <rect
+                x="428"
+                y="182"
+                width="10"
+                height="14"
+                rx="3"
+                fill="#1C9C4B"
+                opacity="0.9"
+                filter="url(#glow)"
+              />
+              <!-- Hood line -->
+              <path
+                d="M 60 185 Q 80 178 120 172 L 168 148"
+                stroke="rgba(28,156,75,0.5)"
+                stroke-width="1"
+                fill="none"
+              />
+              <!-- Shield badge -->
+              <g transform="translate(220, 40)">
+                <path
+                  d="M 20 0 L 40 8 L 40 28 Q 40 45 20 54 Q 0 45 0 28 L 0 8 Z"
+                  fill="rgba(28,156,75,0.2)"
+                  stroke="#1C9C4B"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M 20 12 L 28 16 L 28 26 Q 28 34 20 38 Q 12 34 12 26 L 12 16 Z"
+                  fill="rgba(28,156,75,0.4)"
+                />
+                <text
+                  x="20"
+                  y="30"
+                  text-anchor="middle"
+                  fill="#a8f0c2"
+                  font-size="12"
+                  font-weight="bold"
+                >
+                  ✓
+                </text>
+              </g>
+              <!-- Decorative lines -->
+              <line
+                x1="0"
+                y1="258"
+                x2="480"
+                y2="258"
+                stroke="rgba(28,156,75,0.15)"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 1: hero → beneficios -->
+    <div class="wave-divider">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
+          fill="#0a0f0c"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== BENEFITS ===== -->
+    <section id="beneficios">
+      <div class="section-inner reveal">
+        <h2 class="section-title">Tudo que você precisa em um único plano</h2>
+        <p class="section-sub">
+          Cobertura completa, mensalidade justa, suporte real.
+        </p>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <span class="benefit-icon">🔒</span>
+            <h3>Roubo e Furto</h3>
+            <p>
+              Os índices de roubo não param de crescer. Seu carro protegido
+              contra subtração total.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🚗</span>
+            <h3>Colisão</h3>
+            <p>
+              Acidentes podem custar uma fortuna. Com a SuaProteção, você não
+              arca sozinho.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🚑</span>
+            <h3>Assistência 24h</h3>
+            <p>
+              Suporte a qualquer hora, em qualquer lugar. Pane, acidente ou
+              emergência.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">📡</span>
+            <h3>Rastreamento</h3>
+            <p>
+              Controle total da localização do seu veículo pelo celular, com
+              opção de bloqueio remoto.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🚛</span>
+            <h3>Reboque até 1.000 km</h3>
+            <p>
+              Se seu veículo parar, acionamos reboque sem custo extra — até
+              1.000 km de cobertura.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🌧️</span>
+            <h3>Fenômenos Naturais</h3>
+            <p>
+              Granizo, enchente, queda de árvore? Protegido contra tudo que a
+              natureza pode causar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 2: beneficios → comparativo (flipped) -->
+    <div class="wave-divider" style="transform: scaleX(-1)">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
+          fill="#0a0f0c"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== COMPARISON ===== -->
+    <section id="comparativo">
+      <div class="section-inner reveal">
+        <h2 class="section-title">Por que escolher proteção veicular?</h2>
+        <div
+          style="
+            overflow-x: auto;
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+          "
+        >
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Critério</th>
+                <th>Seguro Tradicional</th>
+                <th style="background: #17803d">SuaProteção</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Análise de perfil</td>
+                <td class="red-val">❌ Sim</td>
+                <td class="green-val">✅ Não</td>
+              </tr>
+              <tr>
+                <td>Franquia alta</td>
+                <td class="red-val">❌ Sim</td>
+                <td class="green-val">✅ Não</td>
+              </tr>
+              <tr>
+                <td>Burocracia</td>
+                <td class="red-val">❌ Muita</td>
+                <td class="green-val">✅ Zero</td>
+              </tr>
+              <tr>
+                <td>Cancelamento livre</td>
+                <td class="red-val">❌ Multa</td>
+                <td class="green-val">✅ Livre</td>
+              </tr>
+              <tr>
+                <td>Assistência 24h</td>
+                <td class="red-val">❌ Limitada</td>
+                <td class="green-val">✅ Completa</td>
+              </tr>
+              <tr>
+                <td>Preço</td>
+                <td class="red-val">❌ Caro</td>
+                <td class="green-val">✅ A partir de R$2,46/dia</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 3: comparativo → depoimentos -->
+    <div class="wave-divider">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,20 C360,70 720,-10 1080,50 C1260,70 1380,25 1440,30 L1440,60 L0,60 Z"
+          fill="#000000"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="depoimentos">
+      <div class="section-inner reveal">
+        <h2 class="section-title">O que nossos associados dizem</h2>
+        <div
+          class="slider-wrapper"
+          style="margin-top: 40px"
+          id="testimonial-slider"
+        >
+          <div class="slides-track" id="slides-track">
+            <div class="slide">
+              <div class="testimonial-card glass">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-quote">
+                  "Já tive carro roubado antes sem proteção. Agora durmo
+                  tranquilo. O processo foi rápido e sem dor de cabeça."
+                </p>
+                <span class="testimonial-author">Carlos M., São Paulo/SP</span>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="testimonial-card glass">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-quote">
+                  "Paguei mais barato que qualquer seguro e a cobertura é
+                  completa. Indico pra todo mundo."
+                </p>
+                <span class="testimonial-author">Fernanda R., Goiânia/GO</span>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="testimonial-card glass">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-quote">
+                  "Bati o carro numa sexta à noite. Na segunda já tinham me dado
+                  retorno. Atendimento excelente!"
+                </p>
+                <span class="testimonial-author"
+                  >Ricardo T., Belo Horizonte/MG</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" id="prev-btn" aria-label="Anterior">
+              &#8592;
+            </button>
+            <div class="slider-dots" id="slider-dots">
+              <div class="dot active" data-index="0"></div>
+              <div class="dot" data-index="1"></div>
+              <div class="dot" data-index="2"></div>
+            </div>
+            <button class="slider-btn" id="next-btn" aria-label="Próximo">
+              &#8594;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 4: depoimentos → faq (flipped) -->
+    <div class="wave-divider" style="transform: scaleX(-1)">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,20 C360,70 720,-10 1080,50 C1260,70 1380,25 1440,30 L1440,60 L0,60 Z"
+          fill="#0a0f0c"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+      <div class="section-inner reveal">
+        <h2 class="section-title">Dúvidas frequentes</h2>
+        <div class="faq-list" style="margin-top: 40px">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>É um seguro?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Não. Somos uma Associação de Proteção Veicular — sociedade civil
+                sem fins lucrativos. Você contribui mensalmente junto a outros
+                associados para cobertura coletiva. Sem SUSEP, sem burocracia de
+                seguradora.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Tem análise de perfil ou crédito?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Não. Ao contrário dos seguros tradicionais, não analisamos
+                perfil socioeconômico, local de moradia ou histórico de
+                sinistros. Todos são bem-vindos.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Como funciona o pagamento?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Você paga uma taxa de adesão única e as mensalidades mês a mês
+                via boleto ou PIX. Pode cancelar a qualquer momento, sem multa.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Como aciono a proteção?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Pelo nosso WhatsApp ou central 24h. O atendimento é rápido,
+                direto e sem papelada excessiva.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 5: faq → formulario -->
+    <div class="wave-divider">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,30 C180,0 360,60 540,30 C720,0 900,55 1080,25 C1260,-5 1380,40 1440,20 L1440,60 L0,60 Z"
+          fill="#0a0f0c"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <section id="formulario">
+      <div class="section-inner reveal">
+        <div class="form-wrapper">
+          <h2 class="form-title section-title" style="text-align: left">
+            Garanta sua proteção agora
+          </h2>
+          <p class="form-sub">
+            Preencha e entraremos em contato em até 2 horas úteis.
+          </p>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome completo"
+                required
+                minlength="3"
+                autocomplete="name"
+              />
+              <div class="field-error" id="err-nome">
+                Por favor, informe seu nome completo (mínimo 3 caracteres).
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                required
+                autocomplete="email"
+              />
+              <div class="field-error" id="err-email">
+                Por favor, informe um e-mail válido.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(00) 00000-0000"
+                required
+                autocomplete="tel"
+              />
+              <div class="field-error" id="err-telefone">
+                Por favor, informe seu telefone com DDD.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input
+                type="text"
+                id="cidade"
+                name="cidade"
+                placeholder="Sua cidade"
+                required
+                autocomplete="address-level2"
+              />
+              <div class="field-error" id="err-cidade">
+                Por favor, informe sua cidade.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="veiculo">Tipo de veículo</label>
+              <select id="veiculo" name="veiculo" required>
+                <option value="" disabled selected>
+                  Selecione o tipo de veículo
+                </option>
+                <option value="Carro de Passeio">Carro de Passeio</option>
+                <option value="Caminhonete">Caminhonete</option>
+                <option value="Moto">Moto</option>
+                <option value="Caminhão">Caminhão</option>
+                <option value="Outro">Outro</option>
+              </select>
+              <div class="field-error" id="err-veiculo">
+                Por favor, selecione o tipo de veículo.
+              </div>
+            </div>
+            <button type="submit" class="btn-primary btn-submit">
+              Quero Minha Proteção →
+            </button>
+            <div class="form-global-error" id="form-global-error">
+              Erro ao enviar. Tente novamente.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave 6: formulario → footer -->
+    <div class="wave-divider" style="transform: scaleX(-1)">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 60px"
+      >
+        <path
+          d="M0,30 C180,0 360,60 540,30 C720,0 900,55 1080,25 C1260,-5 1380,40 1440,20 L1440,60 L0,60 Z"
+          fill="#000000"
+        />
+      </svg>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+      <div class="section-inner">
+        <div class="footer-logo">
+          <span>SuaProteção</span><span>Veicular</span>
+        </div>
+        <p class="footer-tagline">Melhor que seguro, sem burocracia.</p>
+        <div class="footer-contacts">
+          <a
+            href="https://wa.me/5562999999999?text=Quero+saber+sobre+proteção+veicular"
+            class="footer-contact-item"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              color="#1C9C4B"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+              />
+            </svg>
+            (62) 99999-9999
+          </a>
+          <a
+            href="https://instagram.com/suaprotecaoveicular"
+            class="footer-contact-item"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              color="#1C9C4B"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+              />
+            </svg>
+            @suaprotecaoveicular
+          </a>
+        </div>
+        <p class="footer-copy">
+          © 2026 SuaProteção Veicular. Todos os direitos reservados.
+        </p>
+        <p class="footer-disclaimer">
+          Associação de Proteção Veicular. Não é seguro. Não é regulada pela
+          SUSEP.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a
+      id="whatsapp-float"
+      href="https://wa.me/5562999999999?text=Quero+saber+sobre+proteção+veicular"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <!-- Success Overlay -->
+    <div id="success-overlay" role="dialog" aria-modal="true">
+      <h2>🎉 Solicitação Recebida!</h2>
+      <p>
+        ✅ Recebemos seu contato! Em breve nossa equipe entrará em contato pelo
+        WhatsApp.
+      </p>
+      <button id="close-overlay">Fechar</button>
+    </div>
+
+    <script>
+      // ===== HEADER SCROLL SHADOW =====
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 80);
+      });
+
+      // ===== PHONE MASK =====
+      const phoneInput = document.getElementById("telefone");
+      phoneInput.addEventListener("input", function () {
+        let v = this.value.replace(/\D/g, "").substring(0, 11);
+        if (v.length > 6) {
+          v =
+            "(" +
+            v.substring(0, 2) +
+            ") " +
+            v.substring(2, 7) +
+            "-" +
+            v.substring(7);
+        } else if (v.length > 2) {
+          v = "(" + v.substring(0, 2) + ") " + v.substring(2);
+        } else if (v.length > 0) {
+          v = "(" + v;
+        }
+        this.value = v;
+      });
+
+      // ===== FORM VALIDATION & SUBMIT =====
+      const form = document.getElementById("contact-form");
+      function showErr(id, show) {
+        document.getElementById("err-" + id).classList.toggle("show", show);
+      }
+      function validateEmail(e) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefone = document.getElementById("telefone").value.trim();
+        const cidade = document.getElementById("cidade").value.trim();
+        const veiculo = document.getElementById("veiculo").value;
+        let valid = true;
+
+        showErr("nome", nome.length < 3);
+        if (nome.length < 3) valid = false;
+
+        showErr("email", !validateEmail(email));
+        if (!validateEmail(email)) valid = false;
+
+        showErr("telefone", telefone.replace(/\D/g, "").length < 10);
+        if (telefone.replace(/\D/g, "").length < 10) valid = false;
+
+        showErr("cidade", cidade.length < 2);
+        if (cidade.length < 2) valid = false;
+
+        showErr("veiculo", !veiculo);
+        if (!veiculo) valid = false;
+
+        if (!valid) return;
+
+        const btn = form.querySelector("button[type=submit]");
+        btn.disabled = true;
+        btn.textContent = "Enviando...";
+
+        try {
+          const resp = await fetch(
+            "https://api.avizzap.com/v1/webhook/SEU_WEBHOOK_ID",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ nome, email, telefone, cidade, veiculo }),
+            },
+          );
+          if (!resp.ok) throw new Error("Network error");
+          document.getElementById("success-overlay").classList.add("show");
+          form.reset();
+        } catch (err) {
+          const ge = document.getElementById("form-global-error");
+          ge.textContent = "Erro ao enviar. Tente novamente.";
+          ge.classList.add("show");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Quero Minha Proteção →";
+        }
+      });
+
+      document.getElementById("close-overlay").addEventListener("click", () => {
+        document.getElementById("success-overlay").classList.remove("show");
+      });
+
+      // ===== TESTIMONIALS SLIDER =====
+      const track = document.getElementById("slides-track");
+      const dots = document.querySelectorAll(".dot");
+      let current = 0;
+      const total = 3;
+      let autoplay;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle("active", i === current));
+      }
+
+      document.getElementById("prev-btn").addEventListener("click", () => {
+        goTo(current - 1);
+        resetAutoplay();
+      });
+      document.getElementById("next-btn").addEventListener("click", () => {
+        goTo(current + 1);
+        resetAutoplay();
+      });
+      dots.forEach((d) =>
+        d.addEventListener("click", () => {
+          goTo(parseInt(d.dataset.index));
+          resetAutoplay();
+        }),
+      );
+
+      function startAutoplay() {
+        autoplay = setInterval(() => goTo(current + 1), 5000);
+      }
+      function resetAutoplay() {
+        clearInterval(autoplay);
+        startAutoplay();
+      }
+      startAutoplay();
+
+      // ===== FAQ ACCORDION =====
+      document.querySelectorAll(".faq-question").forEach((q) => {
+        q.addEventListener("click", () => {
+          const item = q.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+          document
+            .querySelectorAll(".faq-item")
+            .forEach((i) => i.classList.remove("open"));
+          if (!isOpen) item.classList.add("open");
+        });
+      });
+
+      // ===== SCROLL REVEAL =====
+      const revealEls = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
