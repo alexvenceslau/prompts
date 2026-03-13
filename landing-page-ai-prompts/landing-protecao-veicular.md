@@ -193,15 +193,6 @@ QUESTIONS (pt-BR):
 
 ---
 
-## FLOATING WHATSAPP BUTTON
-
-- Fixed bottom-right corner
-- 60px circle, background #1C9C4B, white SVG WhatsApp icon
-- Link: `https://wa.me/5562999999999?text=Quero+saber+sobre+proteção+veicular`
-- Pulsing CSS keyframe animation using rgba(28,156,75,0.4)
-
----
-
 ## REQUIRED JS (no external libraries)
 
 1. Sticky header shadow on scroll
